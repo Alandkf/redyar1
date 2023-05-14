@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>CLD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<ul id="nav">
+  <img src="CSS - My Site Images/Gashbin&Bana.png" id="logo1">
+  <li class="dt"><a href="#home">Home</a></li>
+  <li class="dt"><a href="#about">About</a> </li>
+  <li class="dt"><a href="#project">Projects</a></li>
+  <li class="dt"><a href="#contact">Contact us</a></li>
+  <span id="clock" style="color: white; position: relative; left: 16rem;"></span>
+</ul>
+
+
+    <div class="top-container" id="home">
+        <img class="top-cloud" src="CSS - My Site Images/cloud.png" alt="">
+        <h1 style="color: rgb(234, 172, 15);"> Gashnin & Bana.</h1>
+        <h2> <span class="pro">Frontend</span> Developer.</h2>
+        <h2> <span class="pro">Graphic</span> Designer.</h2>
+        <img class="buttom-cloud" src="CSS - My Site Images/cloud.png" alt="">
+        <img src="CSS - My Site Images/mountain.png" alt="">
+    </div>
+
+    <div class="middle-container" id="about">
+        <div class="profile">
+          <img id="us" src="CSS - My Site Images/Portfolio1.jpg" style="margin-right: 55px;">
+          <img id="us" src="CSS - My Site Images/portfolio3.jpg" style="margin-left: 55px;">
+          <h2 >Hello.</h2>
+          <p id="intro">we wish you enjoy our personal-Website,hope you like it,here some informatio about us</p>
+        </div>
+        <hr>
+        <div class="skills">
+          <h2>Our Skills.</h2>
+          <div class="skill-row">
+            <img class="pc" src="CSS - My Site Images/computer.png" alt="">
+            <h3>Frontend web Develeper </h3>
+            <p>we can work as a web Develeper and Frontend web Develeper especially <br>we can use HTML&CSS&JS very good by their libbery's(react,bootstrap....)</p>
+          </div>
+          <div  class="skill-row">
+            <img  class="chillies" src="https://pluralsight.imgix.net/paths/path-icons/graphic-design-8e71846112.png" alt="">
+            <h3>Graphic designer</h3>
+            <p>we can work as a grapic Designer. especially logos<br>we can use Photoshop,illustrator,Canva...</p>
+          </div>
+        </div>
+        <hr>
+        <div class="skills" id="project">
+          <h2>Our projects.</h2>
+          <div class="skill-row">
+            <img class="pc" src="CSS - My Site Images/KO.png" alt="">
+            <h3>Creating logo for cocacola </h3>
+            <p>We are thrilled to share that our team was responsible for creating the iconic Coca-Cola logo.</p>
+          </div>
+          <div  class="skill-row">
+            <img  class="chillies" src="CSS - My Site Images/nitflex.png">
+            <h3>Netflix Frontend web Developer</h3>
+            <p>As the creators of the Netflix website frontend, we are constantly striving to improve the user experience and ensure that our platform remains a leader in the industry.</p>
+          </div>
+        </div>
+        <hr>
+        <div class="contact-me" id="contact">
+          <img src="CSS - My Site Images/Gashbin&Bana.png" id="logo2">
+          <h2 style="margin: 0;">Get In Touch</h2>
+          <h3>You can contact us if you need anything</h3>
+          <p>click here to send messge to our bussnes email, or contact our other accounts</p>
+          <a class="btn" href="msg.html" target="_blank">CONTACT US</a>
+        </div>
+      </div>
+      
+      
+      <div class="bottom-container">
+        <a class="footer-link" href="#">facebook</a>
+        <a class="footer-link" href="#">Instagram</a>
+        <a class="footer-link" href="#">Telegram QR</a>
+        <p id="fff">© Name Surname.</p>
+      </div>
+
+      <script>
+        function showTime() { 
+        document.getElementById("clock").innerHTML = new Date().toLocaleTimeString();
+        }
+        setInterval(showTime, 1000);
+        </script>
+</body>
+</html>

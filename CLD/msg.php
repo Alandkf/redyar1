@@ -1,0 +1,151 @@
+<?php
+require_once("config.php");
+?>
+
+<?php
+if (isset($_POST['submit_form'])) {
+
+  $fullname = $_POST['name'];
+  $email = $_POST['email'];
+  $location = $_POST['location'];
+  $phone_number = $_POST['phone_number'];
+  $project_Type = $_POST['project_type'];
+  $sql = "INSERT INTO customers (fullname,email,location,phone_number,project_type) VALUES (?,?,?,?,?)";
+  $stmtinsert = $db->prepare($sql);
+  $result = $stmtinsert->execute([$fullname, $email, $location, $phone_number, $project_Type]);
+  if ($result) {
+    echo "successfully saved";
+  } else {
+    echo " there were errors while saving the data!";
+  }
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
+  <title>MSG</title>
+
+  <style>
+    form {
+      position: relative;
+      bottom: 4rem;
+      width: 80%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f1f1f1;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 3px;
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+      font-size: 16px;
+      color: #333;
+    }
+
+    textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #008CBA;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0077A3;
+    }
+
+    h4 {
+      cursor: pointer;
+      z-index: 100;
+      display: inline;
+    }
+  </style>
+
+</head>
+<body">
+  <ul id="nav">
+    <img src="CSS - My Site Images/Gashbin&Bana.png" id="logo1">
+    <li class="dt"><a href="index.html#home">Home</a></li>
+    <li class="dt"><a href="index.html#about">About</a> </li>
+    <li class="dt"><a href="index.html#project">Projects</a></li>
+    <li class="dt"><a href="index.html#contact">Contact us</a></li>
+    <span id="clock" style="color: white; position: relative; left: 16rem;"></span>
+  </ul>
+
+
+  <form id="form" method="post" action="msg.php">
+    <label for="name">Full name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" required>
+
+    <label for="phone_number">Phone number:</label>
+    <input type="tel" id="phone_number" name="phone_number" pattern="\d+" required>
+
+    <label for="project_type">Type of your project:</label>
+    <input type="radio" id="design" value="graphic Designer" name="project_type" onclick="designn()">
+    <h4 onclick="designn()">Graphic Designer</h4>
+    <input type="radio" id="web" value="Frontend Web Developer" name="project_type" onclick="web()">
+    <h4 onclick="webb()">Frontend Web Developer</h4>
+
+    <label for="project-details">Tell us about your project:</label>
+    <textarea id="project-details" name="project_details" required></textarea>
+
+    <p id="error-message" style="display:none; color:red;"></p>
+
+    <input type="submit" name="submit_form" value="Submit" onclick="validateForm(event)">
+  </form>
+
+
+
+
+  <script src="script.js"></script>
+  <script>
+    function showTime() {
+      document.getElementById("clock").innerHTML = new Date().toLocaleTimeString();
+    }
+    setInterval(showTime, 1000);
+  </script>
+  </body>
+
+</html>
